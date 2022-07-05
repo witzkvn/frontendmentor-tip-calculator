@@ -66,6 +66,7 @@ const CustomNumberInput = ({
               type="number"
               id={customId || uniqueId}
               min={min}
+              size={1}
               placeholder={min}
               value={value}
               step={step}

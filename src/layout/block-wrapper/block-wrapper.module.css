@@ -16,3 +16,9 @@
 .wrapperShadowed {
   box-shadow: var(--wrapper-shadow);
 }
+
+@media screen and (max-width: 675px) {
+  .wrapper {
+    padding: 2rem;
+  }
+}

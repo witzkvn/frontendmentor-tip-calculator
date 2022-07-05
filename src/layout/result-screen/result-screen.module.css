@@ -36,14 +36,23 @@
   background-color: var(--cyan);
   color: var(--dark-cyan);
   font-family: inherit;
-  font-size: 3rem;
+  font-size: 2rem;
+  padding: 1rem;
+  font-weight: var(--font-weight);
   text-transform: uppercase;
   margin-top: 10rem;
   border-radius: var(--border-radius-small);
-  cursor: pointer;
   transition: var(--transition);
 }
 
-.resetBtn:hover {
+.activeBtn {
+  cursor: pointer;
+}
+
+.activeBtn:hover {
   background-color: var(--light-grayish-cyan);
+}
+
+.desactivatedBtn {
+  background-color: var(--dark-grayish-cyan);
 }

@@ -14,9 +14,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -32,83 +29,81 @@ Users should be able to:
 
 ![](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [github](https://github.com/witzkvn/frontendmentor-tip-calculator)
+- Live Site URL: [live here](https://frontendmentor-tip-calculator.vercel.app/)
 
 ## My process
+
+I started to identify some components that I could reuse in different places, and set my general styling (variables, basic reset...). Then I made all the other components, the calculation logic, and finally some design adjustments and the responsive part. I've done structure + basic styling in the same time.
+
+I choose to use [react-icons](https://github.com/react-icons/react-icons) instead of the given SVG icons to pratice the usage of external package and include them as components.
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- CSS custom properties / CSS modules
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Deployed with [Vercel](https://vercel.com/)
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I tried to use the maximum from React : different hooks, factorize in components as soon as possible, use integrated CSS module support...
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+To have control on inputs, I had to make a complex bonding with states in the <App /> component, in order to get the asked comportment when the value is valid / invalid. I had to find a way to detect the focus in my inputs (because I had to use divs to include an icon, and to give it style depending on my valid / invalid input inside it !). I found a very useful react hook for that :
 
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
+import { useState, useEffect } from "react";
+
+const useActiveElement = () => {
+  const [listenersReady, setListenersReady] =
+    useState(false); /** Useful when working with autoFocus */
+  const [activeElement, setActiveElement] = useState(document.activeElement);
+
+  useEffect(() => {
+    const onFocus = (event) => setActiveElement(event.target);
+    const onBlur = (event) => setActiveElement(null);
+
+    window.addEventListener("focus", onFocus, true);
+    window.addEventListener("blur", onBlur, true);
+
+    setListenersReady(true);
+
+    return () => {
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener("blur", onBlur);
+    };
+  }, []);
+
+  return {
+    activeElement,
+    listenersReady,
+  };
 };
+
+export default useActiveElement;
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+I also had to search for a long time for the best approach to include icons next to the input fields.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+The calculation logic was nice to pratice some algorithmics and an efficient JS state management.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+It would be interesting to see easier ways to handle float numbers inputs because when using normal state to control the value, as soon as a coma is entered, the value couldn't be parsed and the state was reset to 0.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I'm sure my logic can be optimized and if you have any idea I would love to hear about it 😊 !
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [CSS shadow](https://getcssscan.com/css-box-shadow-examples) - nice CSS shadows to copy with a single click !
+- [useActiveHook code](https://stackoverflow.com/questions/62497193/detecting-which-input-is-focused-react-hooks) - The code for the custom hook I used to detect focus on my inputs
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Github - [witzkvn](https://github.com/witzkvn)
+- Frontend Mentor - [@witzkvn](https://www.frontendmentor.io/profile/witzkvn)
+- Linkedin - [Witz Kevin](https://www.linkedin.com/in/kevinwitz/)

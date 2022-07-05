@@ -39,6 +39,8 @@
   text-align: right;
   flex: 1;
   max-width: 100%;
+  min-width: 0;
+  width: 100%;
 }
 
 /* optional to hide arrows in input numbers */

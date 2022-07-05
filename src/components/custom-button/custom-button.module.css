@@ -1,5 +1,4 @@
 .customButton {
-  border: none;
   cursor: pointer;
   background-color: var(--dark-cyan);
   color: var(--very-light-grayish-cyan);
@@ -9,6 +8,7 @@
   border-radius: var(--border-radius-small);
   transition: var(--transition);
   font-weight: var(--font-weight);
+  border: 2px solid transparent;
 }
 
 .active {
@@ -19,4 +19,5 @@
 .customButton:hover {
   background-color: var(--light-grayish-cyan);
   color: var(--dark-cyan);
+  border: 2px solid var(--dark-cyan);
 }
