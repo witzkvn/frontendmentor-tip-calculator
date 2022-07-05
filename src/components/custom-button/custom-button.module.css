@@ -1,0 +1,17 @@
+.customButton {
+  border: none;
+  cursor: pointer;
+  background-color: var(--dark-cyan);
+  color: var(--very-light-grayish-cyan);
+  padding: 0.8rem 2rem;
+  font-size: var(--input-font-size);
+  font-family: inherit;
+  border-radius: var(--border-radius-small);
+  transition: var(--transition);
+  font-weight: var(--font-weight);
+}
+
+.customButton:hover {
+  background-color: var(--light-grayish-cyan);
+  color: var(--dark-cyan);
+}
