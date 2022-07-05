@@ -1,10 +1,13 @@
 :root {
   --cyan: hsl(172, 67%, 45%);
+  --dark-cyan: hsl(183, 100%, 15%);
   --dark-grayish-cyan: hsl(186, 14%, 43%);
   --grayish-cyan: hsl(184, 14%, 56%);
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --error: hsl(0, 72%, 52%);
+  --success: hsl(120, 82%, 52%);
 
   --input-font-size: 2.4rem;
   --font: "Space Mono", monospace;
@@ -12,4 +15,6 @@
 
   --border-radius: 1rem;
   --wrapper-shadow: rgba(149, 157, 165, 0.2) 0rem 0.8rem 2.4rem;
+
+  --transition: all 0.2s ease;
 }
