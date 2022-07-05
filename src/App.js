@@ -1,5 +1,7 @@
 import styles from "./app.module.css";
+import CustomNumberInput from "./components/custom-input";
 import BlockWrapper from "./layout/block-wrapper/BlockWrapper";
+import { BiDollar } from "react-icons/bi";
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
         withShadow={true}
       >
         <BlockWrapper level="primary" withShadow={false}>
-          left
+          <CustomNumberInput labelText="Bill" Icon={BiDollar} min={0} />
         </BlockWrapper>
         <BlockWrapper level="secondary" withShadow={false}>
           right
