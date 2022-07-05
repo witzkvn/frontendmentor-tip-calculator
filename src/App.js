@@ -10,12 +10,13 @@ import ResultScreen from "./layout/result-screen/result-screen";
 function App() {
   const PEOPLE_MIN = 1;
   const BILL_MIN = 0;
+  const TIP_MIN = 0;
   const customTipId = useId();
   const [billValue, setBillValue] = useState(BILL_MIN);
   const [peopleNumber, setPeopleNumber] = useState(PEOPLE_MIN);
   const [tipPerPerson, setTipPerPerson] = useState(0);
   const [totalPerPerson, setTotalPerPerson] = useState(0);
-  const [customTip, setCustomTip] = useState(0);
+  const [customTip, setCustomTip] = useState(TIP_MIN);
   const [tipValues, setTipValues] = useState([
     { value: 5, isSelected: false },
     { value: 10, isSelected: false },
@@ -36,7 +37,7 @@ function App() {
 
   function handleTipSelection(tipValueSelected) {
     const stateCopy = tipValues.map((tip) => ({ ...tip, isSelected: false }));
-    setCustomTip(0);
+    setCustomTip(TIP_MIN);
 
     const selectedTipIndex = stateCopy.findIndex(
       (tip) => tip.value === tipValueSelected
@@ -55,9 +56,9 @@ function App() {
 
   function handleResetAll() {
     resetTipsValuesState();
-    setPeopleNumber(1);
-    setBillValue(0);
-    setCustomTip(0);
+    setPeopleNumber(PEOPLE_MIN);
+    setBillValue(BILL_MIN);
+    setCustomTip(TIP_MIN);
   }
 
   function resetTipsValuesState() {
@@ -70,6 +71,14 @@ function App() {
 
   useEffect(() => {
     let tipValue;
+
+    if (
+      billValue < BILL_MIN ||
+      peopleNumber < PEOPLE_MIN ||
+      customTip < TIP_MIN
+    ) {
+      return;
+    }
 
     if (customTip) {
       tipValue = getParsedRoundedNumber(customTip * 1, 2);
