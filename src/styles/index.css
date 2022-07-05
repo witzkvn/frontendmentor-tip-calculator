@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: var(--light-grayish-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+  font-size: 1.6rem;
 }

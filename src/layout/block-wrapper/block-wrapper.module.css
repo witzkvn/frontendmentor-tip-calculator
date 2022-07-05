@@ -1,0 +1,18 @@
+.wrapper {
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+.wrapperPrimary {
+  background-color: var(--white);
+  color: var(--grayish-cyan);
+}
+
+.wrapperSecondary {
+  background-color: var(--dark-grayish-cyan);
+  color: var(--very-light-grayish-cyan);
+}
+
+.wrapperShadowed {
+  box-shadow: var(--wrapper-shadow);
+}

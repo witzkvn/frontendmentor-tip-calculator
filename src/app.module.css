@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: var(--dark-grayish-cyan);
+  font-size: 2.2rem;
+  letter-spacing: 8px;
+  margin-bottom: 6rem;
+}
+
+.wrapper {
+  display: flex;
+}
