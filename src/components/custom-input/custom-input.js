@@ -8,6 +8,7 @@ const CustomNumberInput = ({
   Icon,
   customId,
   handleChange,
+  value,
   min = 0,
   step = 1,
 }) => {
@@ -26,14 +27,12 @@ const CustomNumberInput = ({
   }, [activeElement]);
 
   function checkValueChange() {
-    const newValue = parseFloat(inputRef.current.value);
+    const newValue = inputRef.current.value;
     const isInputValid = newValue > min;
 
     setIsValid(isInputValid);
 
-    if (isInputValid) {
-      handleChange(newValue);
-    }
+    handleChange(newValue);
   }
 
   return (
@@ -68,6 +67,7 @@ const CustomNumberInput = ({
               id={customId || uniqueId}
               min={min}
               placeholder={min}
+              value={value}
               step={step}
             />
           </div>
@@ -83,6 +83,7 @@ CustomNumberInput.propTypes = {
   customId: PropTypes.string,
   handleChange: PropTypes.func,
   min: PropTypes.number,
+  value: PropTypes.number,
 };
 
 export default CustomNumberInput;

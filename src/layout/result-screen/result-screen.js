@@ -10,14 +10,14 @@ const ResultScreen = ({ tipPerPerson, totalPerPerson, handleResetAll }) => {
           <p className={styles.resultTitle}>Tip Amount</p>
           <p className={styles.resultSubTitle}>/ person</p>
         </div>
-        <div className={styles.resultValue}>${tipPerPerson || 0}</div>
+        <div className={styles.resultValue}>${tipPerPerson}</div>
       </div>
       <div className={styles.resultBox}>
         <div className={styles.resultItem}>
           <p className={styles.resultTitle}>Total</p>
           <p className={styles.resultSubTitle}>/ person</p>
         </div>
-        <div className={styles.resultValue}>${totalPerPerson || 0}</div>
+        <div className={styles.resultValue}>${totalPerPerson}</div>
       </div>
       <button className={styles.resetBtn} onClick={() => handleResetAll()}>
         Reset

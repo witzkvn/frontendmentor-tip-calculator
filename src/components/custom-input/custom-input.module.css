@@ -41,8 +41,9 @@
   max-width: 100%;
 }
 
-input::-webkit-outer-spin-button,
+/* optional to hide arrows in input numbers */
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
