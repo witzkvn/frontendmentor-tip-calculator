@@ -3,13 +3,19 @@ import useActiveElement from "../../custom-hooks/useActiveElement";
 import PropTypes from "prop-types";
 import styles from "./custom-input.module.css";
 
-const CustomNumberInput = ({ labelText, Icon, customId, min = 0 }) => {
+const CustomNumberInput = ({
+  labelText,
+  Icon,
+  customId,
+  handleChange,
+  value,
+  min = 0,
+  step = 1,
+}) => {
   const uniqueId = useId();
   const inputRef = useRef();
   const [isValid, setIsValid] = useState(true);
   const [inputIsFocus, setInputIsFocus] = useState(false);
-  const [value, setValue] = useState(false);
-
   const { activeElement, listenersReady } = useActiveElement();
 
   useEffect(() => {
@@ -21,11 +27,12 @@ const CustomNumberInput = ({ labelText, Icon, customId, min = 0 }) => {
   }, [activeElement]);
 
   function checkValueChange() {
-    const newValue = parseFloat(inputRef.current.value);
-    console.log(newValue);
-    console.log(min);
+    const newValue = inputRef.current.value;
     const isInputValid = newValue > min;
-    setIsValid((prev) => isInputValid);
+
+    setIsValid(isInputValid);
+
+    handleChange(newValue);
   }
 
   return (
@@ -60,6 +67,8 @@ const CustomNumberInput = ({ labelText, Icon, customId, min = 0 }) => {
               id={customId || uniqueId}
               min={min}
               placeholder={min}
+              value={value}
+              step={step}
             />
           </div>
         </div>
@@ -72,7 +81,9 @@ CustomNumberInput.propTypes = {
   labelText: PropTypes.string,
   Icon: PropTypes.elementType,
   customId: PropTypes.string,
+  handleChange: PropTypes.func,
   min: PropTypes.number,
+  value: PropTypes.number,
 };
 
 export default CustomNumberInput;

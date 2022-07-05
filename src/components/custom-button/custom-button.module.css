@@ -11,6 +11,11 @@
   font-weight: var(--font-weight);
 }
 
+.active {
+  background-color: var(--cyan);
+  color: var(--dark-cyan);
+}
+
 .customButton:hover {
   background-color: var(--light-grayish-cyan);
   color: var(--dark-cyan);
