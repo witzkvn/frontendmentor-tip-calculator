@@ -66,7 +66,7 @@ const CustomNumberInput = ({ labelText, Icon, min = 0 }) => {
   );
 };
 
-CustomNumberInput.protoTypes = {
+CustomNumberInput.propTypes = {
   labelText: PropTypes.string,
   Icon: PropTypes.elementType,
   min: PropTypes.number,
