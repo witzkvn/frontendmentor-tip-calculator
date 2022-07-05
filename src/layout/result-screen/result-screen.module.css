@@ -1,0 +1,49 @@
+.resultScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.resultBox {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+
+.resultTitle {
+  color: var(--light-grayish-cyan);
+}
+
+.resultSubTitle {
+  color: var(--dark-grayish-cyan);
+}
+
+.resultValue {
+  font-size: 5rem;
+  color: var(--cyan);
+  margin-left: 3rem;
+  flex: 1;
+  text-align: right;
+}
+
+.resetBtn {
+  border: none;
+  background-color: var(--cyan);
+  color: var(--dark-cyan);
+  font-family: inherit;
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 10rem;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.resetBtn:hover {
+  background-color: var(--light-grayish-cyan);
+}
