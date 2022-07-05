@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./result-screen.module.css";
 
-const ResultScreen = ({ tipPerPerson, totalPerPerson }) => {
+const ResultScreen = ({ tipPerPerson, totalPerPerson, handleResetAll }) => {
   return (
     <section className={styles.resultScreen}>
       <div className={styles.resultBox}>
@@ -18,9 +19,17 @@ const ResultScreen = ({ tipPerPerson, totalPerPerson }) => {
         </div>
         <div className={styles.resultValue}>${totalPerPerson || 0}</div>
       </div>
-      <button className={styles.resetBtn}>Reset</button>
+      <button className={styles.resetBtn} onClick={() => handleResetAll()}>
+        Reset
+      </button>
     </section>
   );
+};
+
+ResultScreen.propTypes = {
+  tipPerPerson: PropTypes.number,
+  totalPerPerson: PropTypes.number,
+  handleResetAll: PropTypes.func,
 };
 
 export default ResultScreen;
