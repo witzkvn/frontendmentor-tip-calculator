@@ -3,7 +3,7 @@ import useActiveElement from "../../custom-hooks/useActiveElement";
 import PropTypes from "prop-types";
 import styles from "./custom-input.module.css";
 
-const CustomNumberInput = ({ labelText, Icon, min = 0 }) => {
+const CustomNumberInput = ({ labelText, Icon, customId, min = 0 }) => {
   const uniqueId = useId();
   const inputRef = useRef();
   const [isValid, setIsValid] = useState(true);
@@ -32,21 +32,23 @@ const CustomNumberInput = ({ labelText, Icon, min = 0 }) => {
     <>
       {listenersReady && (
         <>
-          <div className={styles.labelWrapper}>
-            <label className={styles.label} htmlFor={uniqueId}>
-              {labelText}
-            </label>
-            {!isValid && inputIsFocus && (
-              <span className={styles.error}>Must be more than {min}</span>
-            )}
-          </div>
+          {labelText && (
+            <div className={styles.labelWrapper}>
+              <label className={styles.label} htmlFor={customId || uniqueId}>
+                {labelText}
+              </label>
+              {!isValid && inputIsFocus && (
+                <span className={styles.error}>Must be more than {min}</span>
+              )}
+            </div>
+          )}
           <div
             className={`${styles.inputIconWrapper} ${
               inputIsFocus
                 ? isValid
                   ? styles.validInput
                   : styles.invalidInput
-                : null
+                : ""
             }`}
           >
             {Icon && <Icon />}
@@ -55,7 +57,7 @@ const CustomNumberInput = ({ labelText, Icon, min = 0 }) => {
               onChange={checkValueChange}
               className={styles.input}
               type="number"
-              id={uniqueId}
+              id={customId || uniqueId}
               min={min}
               placeholder={min}
             />
@@ -69,6 +71,7 @@ const CustomNumberInput = ({ labelText, Icon, min = 0 }) => {
 CustomNumberInput.propTypes = {
   labelText: PropTypes.string,
   Icon: PropTypes.elementType,
+  customId: PropTypes.string,
   min: PropTypes.number,
 };
 

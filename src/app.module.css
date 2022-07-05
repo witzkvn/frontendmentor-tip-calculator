@@ -15,3 +15,18 @@
 .wrapper {
   display: flex;
 }
+
+.tip {
+  margin: 4rem 0;
+}
+
+.tipLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.tipBoxes {
+  display: grid;
+  grid-template-columns: repeat(3, 15rem);
+  gap: 1rem;
+}

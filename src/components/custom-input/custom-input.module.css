@@ -6,9 +6,11 @@
 }
 
 .inputIconWrapper {
+  display: flex;
+  align-items: center;
   border: 2px solid transparent;
   background-color: var(--very-light-grayish-cyan);
-  border-radius: 3px;
+  border-radius: var(--border-radius-small);
   padding: 0 1.2rem;
   transition: var(--transition);
 }
@@ -35,6 +37,8 @@
   background-color: inherit;
   font-weight: var(--font-weight);
   text-align: right;
+  flex: 1;
+  max-width: 100%;
 }
 
 input::-webkit-outer-spin-button,
