@@ -31,7 +31,7 @@ const CustomNumberInput = ({ labelText, Icon, customId, min = 0 }) => {
   return (
     <>
       {listenersReady && (
-        <>
+        <div>
           {labelText && (
             <div className={styles.labelWrapper}>
               <label className={styles.label} htmlFor={customId || uniqueId}>
@@ -62,7 +62,7 @@ const CustomNumberInput = ({ labelText, Icon, customId, min = 0 }) => {
               placeholder={min}
             />
           </div>
-        </>
+        </div>
       )}
     </>
   );

@@ -13,11 +13,15 @@
 }
 
 .wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
 }
 
-.tip {
-  margin: 4rem 0;
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .tipLabel {

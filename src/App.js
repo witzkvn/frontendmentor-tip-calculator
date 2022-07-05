@@ -1,9 +1,10 @@
-import styles from "./app.module.css";
+import styles from "./styles/app.module.css";
 import CustomNumberInput from "./components/custom-input/custom-input";
 import BlockWrapper from "./layout/block-wrapper/BlockWrapper";
 import { BiDollar, BiUser } from "react-icons/bi";
 import CustomButton from "./components/custom-button/custom-button";
 import { useId } from "react";
+import ResultScreen from "./layout/result-screen/result-screen";
 
 function App() {
   const customTipId = useId();
@@ -20,9 +21,9 @@ function App() {
         level="primary"
         withShadow={true}
       >
-        <BlockWrapper level="primary" withShadow={false}>
+        <div className={styles.left}>
           <CustomNumberInput labelText="Bill" Icon={BiDollar} min={0} />
-          <section className={styles.tip}>
+          <section>
             <label htmlFor={customTipId} className={styles.tipLabel}>
               Select Tip %
             </label>
@@ -40,9 +41,9 @@ function App() {
             Icon={BiUser}
             min={1}
           />
-        </BlockWrapper>
+        </div>
         <BlockWrapper level="secondary" withShadow={false}>
-          right
+          <ResultScreen />
         </BlockWrapper>
       </BlockWrapper>
     </main>
