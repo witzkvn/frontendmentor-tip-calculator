@@ -1,7 +1,7 @@
 import styles from "./app.module.css";
 import CustomNumberInput from "./components/custom-input/custom-input";
 import BlockWrapper from "./layout/block-wrapper/BlockWrapper";
-import { BiDollar } from "react-icons/bi";
+import { BiDollar, BiUser } from "react-icons/bi";
 import CustomButton from "./components/custom-button/custom-button";
 import { useId } from "react";
 
@@ -35,6 +35,11 @@ function App() {
               <CustomNumberInput customId={customTipId} min={0} />
             </div>
           </section>
+          <CustomNumberInput
+            labelText="Number of People"
+            Icon={BiUser}
+            min={1}
+          />
         </BlockWrapper>
         <BlockWrapper level="secondary" withShadow={false}>
           right
