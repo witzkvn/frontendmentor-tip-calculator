@@ -19,7 +19,14 @@ const ResultScreen = ({ tipPerPerson, totalPerPerson, handleResetAll }) => {
         </div>
         <div className={styles.resultValue}>${totalPerPerson}</div>
       </div>
-      <button className={styles.resetBtn} onClick={() => handleResetAll()}>
+      <button
+        className={`${styles.resetBtn} ${
+          tipPerPerson === 0 && totalPerPerson === 0
+            ? styles.desactivatedBtn
+            : styles.activeBtn
+        }`}
+        onClick={() => handleResetAll()}
+      >
         Reset
       </button>
     </section>
