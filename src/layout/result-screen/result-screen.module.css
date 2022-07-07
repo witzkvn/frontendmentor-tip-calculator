@@ -56,3 +56,9 @@
 .desactivatedBtn {
   background-color: var(--dark-grayish-cyan);
 }
+
+@media screen and (max-width: 1100px) {
+  .resetBtn {
+    margin-top: 5rem;
+  }
+}
