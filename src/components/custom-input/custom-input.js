@@ -26,6 +26,17 @@ const CustomNumberInput = ({
     }
   }, [activeElement]);
 
+  useEffect(() => {
+    // if min value, which is default, set null to let placeholder only
+    if (inputRef.current) {
+      if (value === min) {
+        inputRef.current.value = null;
+      } else {
+        inputRef.current.value = value;
+      }
+    }
+  }, [value, min]);
+
   function checkValueChange() {
     const newValue = inputRef.current.value;
     const isInputValid = newValue > min;
@@ -67,7 +78,6 @@ const CustomNumberInput = ({
               id={customId || uniqueId}
               min={min}
               placeholder={min}
-              value={value}
               step={step}
             />
           </div>
